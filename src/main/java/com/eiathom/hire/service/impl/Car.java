@@ -26,26 +26,16 @@ import com.eiathom.hire.service.api.Category;
  */
 public class Car extends BaseVehicle {
 
-    private final String make;
-    private final Category category;
     private final String registration;
 
-    public Car(final String make, final String registration, final Category category,
-            final Integer yearManufactured) {
-        super(yearManufactured);
-        this.make = make;
+    public Car(final Long id, final String make, final Category category,
+            final Integer yearManufactured, final String registration) {
+        super(id, make, category, yearManufactured);
         this.registration = registration;
-        this.category = category;
     }
 
-    @Override
-    public String getMake() {
-        return make;
-    }
-
-    @Override
-    public Category getCategory() {
-        return category;
+    public String getRegistration() {
+        return registration;
     }
 
 }

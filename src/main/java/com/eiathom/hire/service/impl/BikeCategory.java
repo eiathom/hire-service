@@ -15,19 +15,35 @@
  */
 package com.eiathom.hire.service.impl;
 
-import com.eiathom.hire.service.api.BaseVehicle;
 import com.eiathom.hire.service.api.Category;
 
 /**
- * base class of Vehicle
+ * enum representing a Bike category
  *
  * @author eiathom
  *
  */
-public class Bike extends BaseVehicle {
+public enum BikeCategory implements Category {
 
-    public Bike(final Long id, final String make, final Category category, final int yearManufactured) {
-        super(id, make, category, yearManufactured);
+    MOUNTAIN("Mountain") {
+        @Override
+        public int getNumberOfWheels() {
+            return 2;
+        }
+        @Override
+        public int getMinimumUsageAge() {
+            return 16;
+        }
+    };
+
+    private final String name;
+
+    private BikeCategory(final String name) {
+        this.name = name;
     }
 
+    @Override
+    public String getName() {
+        return this.name;
+    }
 }

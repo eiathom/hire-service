@@ -15,19 +15,37 @@
  */
 package com.eiathom.hire.service.impl;
 
-import com.eiathom.hire.service.api.BaseVehicle;
-import com.eiathom.hire.service.api.Category;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
- * base class of Vehicle
+ * class representing a Client HireRecord mapping
  *
  * @author eiathom
  *
  */
-public class Bike extends BaseVehicle {
+public class ClientHireRecord {
 
-    public Bike(final Long id, final String make, final Category category, final int yearManufactured) {
-        super(id, make, category, yearManufactured);
+    private final Client client;
+
+    private final List<HireRecord> records;
+
+    public ClientHireRecord(final Client client) {
+        this(client, new ArrayList<HireRecord>(1));
+    }
+
+    public ClientHireRecord(final Client client, final List<HireRecord> records) {
+        this.client = client;
+        this.records = records;
+    }
+
+    public Client getClient() {
+        return this.client;
+    }
+
+    // yes, this ain't mutable
+    public List<HireRecord> getHireRecords() {
+        return this.records;
     }
 
 }

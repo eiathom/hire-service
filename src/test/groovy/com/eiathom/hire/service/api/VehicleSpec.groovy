@@ -23,6 +23,7 @@ import com.eiathom.hire.service.api.Vehicle
 import com.eiathom.hire.service.api.BaseVehicle
 import com.eiathom.hire.service.api.Category
 import com.eiathom.hire.service.impl.Car
+import com.eiathom.hire.service.impl.CarCategory
 
 /**
  * @author eiathom
@@ -34,7 +35,8 @@ class VehicleSpec extends Specification {
 
     def "test hierarchial object"() {
         expect: 'many forms'
-            def vehicle = new Car("Honda Accord", "99-LS-10", Category.SALOON, 2001)
+            def carCategory = CarCategory.SEDAN
+            def vehicle = new Car(1, "Honda Accord", carCategory, 2001, "99-LS-10")
             vehicle instanceof Vehicle
             vehicle instanceof BaseVehicle
     }
@@ -45,7 +47,8 @@ class VehicleSpec extends Specification {
     def "do some test on time"() {
         given: 'some Vehicle object'
             def testYear = 2001
-            def vehicle = new Car("Honda Accord", "99-LS-10", Category.SALOON, testYear)
+            def carCategory = CarCategory.SEDAN
+            def vehicle = new Car(1, "Honda Accord", carCategory, testYear, "99-LS-10")
         when: 'we attempt to get the age of the Vehicle object'
             def yearManufactured = vehicle.getAge()
         then: 'we should get the age'

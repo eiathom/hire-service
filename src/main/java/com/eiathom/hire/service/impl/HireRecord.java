@@ -27,17 +27,23 @@ import com.eiathom.hire.service.api.Vehicle;
  */
 public class HireRecord {
 
+    private final Long id;
     private final Client client;
     private final Vehicle vehicle;
     private final Date hireStartDate;
     private final Date hireEndDate;
 
-    public HireRecord(final Client client, final Vehicle vehicle, final Date hireStartDate,
-            final Date hireEndDate) {
+    public HireRecord(final Long id, final Client client, final Vehicle vehicle,
+            final Date hireStartDate, final Date hireEndDate) {
+        this.id = id;
         this.client = client;
         this.vehicle = vehicle;
         this.hireStartDate = hireStartDate;
         this.hireEndDate = hireEndDate;
+    }
+
+    public Long getId() {
+        return this.id;
     }
 
     public Client getClient() {

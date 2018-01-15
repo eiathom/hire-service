@@ -25,24 +25,54 @@ import java.util.Calendar;
  */
 public abstract class BaseVehicle implements Vehicle {
 
-    protected final int yearManufactured;
+    protected final Long id;
 
-    protected boolean hired;
+    protected final Integer yearManufactured;
 
-    public BaseVehicle(final int yearManufactured) {
-        this.yearManufactured = yearManufactured;
+    protected final String make;
+
+    protected final Category category;
+
+    protected Boolean hired;
+
+    public BaseVehicle(final Long id, final String make, final Category category,
+            final Integer yearManufactured) {
+        this(id, make, category, yearManufactured, false);
     }
 
-    public boolean isHired() {
+    public BaseVehicle(final Long id, final String make, final Category category,
+            final Integer yearManufactured, final Boolean hired) {
+        this.id = id;
+        this.make = make;
+        this.category = category;
+        this.yearManufactured = yearManufactured;
+        this.hired = hired;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public Boolean isHired() {
         return hired;
     }
 
-    public void setHired(final boolean hired) {
+    public void setHired(final Boolean hired) {
         this.hired = hired;
     }
 
     public Integer getAge() {
         return Calendar.getInstance().get(Calendar.YEAR) - this.yearManufactured;
+    }
+
+    @Override
+    public String getMake() {
+        return make;
+    }
+
+    @Override
+    public Category getCategory() {
+        return category;
     }
 
 }

@@ -28,25 +28,31 @@ import com.eiathom.hire.service.impl.HireRecord;
  */
 public class Client {
 
-    private final String name;
+    private final Long id;
+    private final String firstName;
+    private final String lastName;
     private final Integer age;
     private final String licenseNumber;
-    private final Set<HireRecord> hireRecords;
 
-    public Client(final String name, final Integer age, final String licenseNumber) {
-        this(name, age, licenseNumber, new HashSet<HireRecord>(1));
-    }
-
-    public Client(final String name, final Integer age, final String licenseNumber,
-            final Set<HireRecord> hireRecords) {
-        this.name = name;
+    public Client(final Long id, final String firstName, final String lastName, final Integer age,
+            final String licenseNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
         this.licenseNumber = licenseNumber;
-        this.hireRecords = hireRecords;
+    }
+
+    public Long getId() {
+        return this.id;
     }
 
     public String getName() {
-        return this.name;
+        return this.firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
     }
 
     public Integer getAge() {
@@ -57,18 +63,15 @@ public class Client {
         return this.licenseNumber;
     }
 
-    public Set<HireRecord> getHireRecords() {
-        return this.hireRecords;
-    }
-
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+        result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
         result = prime * result + ((age == null) ? 0 : age.hashCode());
         result = prime * result + ((licenseNumber == null) ? 0 : licenseNumber.hashCode());
-        result = prime * result + ((hireRecords == null) ? 0 : hireRecords.hashCode());
         return result;
     }
 
@@ -76,10 +79,11 @@ public class Client {
     public boolean equals(final Object obj) {
         if (obj != null && obj instanceof Client) {
             final Client other = (Client) obj;
-            return this.name.equals(other.name)
+            return this.id.equals(other.id)
+                    && this.firstName.equals(other.firstName)
+                    && this.lastName.equals(other.lastName)
                     && this.age.equals(other.age)
-                    && this.licenseNumber.equals(other.licenseNumber)
-                    && this.hireRecords.equals(other.hireRecords);
+                    && this.licenseNumber.equals(other.licenseNumber);
         }
         return false;
     }
@@ -87,10 +91,11 @@ public class Client {
     @Override
     public String toString() {
         return new StringBuilder(this.getClass().getSimpleName())
-                .append("[name=").append(this.name)
+                .append("[id=").append(this.id)
+                .append(", firstName=").append(this.firstName)
+                .append(", lastName=").append(this.lastName)
                 .append(", age=").append(this.age)
                 .append(", licenseNumber=").append(this.licenseNumber)
-                .append(", hireRecords=").append(this.hireRecords)
                 .append("]").toString();
     }
 

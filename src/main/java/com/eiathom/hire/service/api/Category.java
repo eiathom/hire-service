@@ -16,23 +16,17 @@
 package com.eiathom.hire.service.api;
 
 /**
- * enum representing a Vehicle category
+ * interface representing a Vehicle category
  *
  * @author eiathom
  *
  */
-public enum Category {
+public interface Category {
 
-    SALOON("Saloon"), ESTATE("Estate"), ROADSTER("Roadster"), MOUNTAIN("Mountain"), RACER("Racer");
+    public String getName();
 
-    private final String name;
+    public int getNumberOfWheels();
 
-    private Category(final String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
+    public int getMinimumUsageAge();
 
 }

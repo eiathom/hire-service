@@ -13,21 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.eiathom.hire.service.impl;
-
-import com.eiathom.hire.service.api.BaseVehicle;
-import com.eiathom.hire.service.api.Category;
+package com.eiathom.hire.service.dao;
 
 /**
- * base class of Vehicle
- *
  * @author eiathom
  *
  */
-public class Bike extends BaseVehicle {
+public interface Dao<T> {
 
-    public Bike(final Long id, final String make, final Category category, final int yearManufactured) {
-        super(id, make, category, yearManufactured);
-    }
+    public boolean create(final String connectionDetails, final T object);
+
+    public T read(final String connectionDetails, final T object);
+
+    public void update(final String connectionDetails, final T object);
+
+    public boolean delete(final String connectionDetails, final T object);
 
 }

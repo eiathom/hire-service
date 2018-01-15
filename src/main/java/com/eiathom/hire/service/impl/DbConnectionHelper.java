@@ -37,7 +37,7 @@ public final class DbConnectionHelper {
 
     private static final String PASSWORD_JSON_KEY = "password";
 
-    private static Pattern PATTERN = Pattern.compile("^\\{\\s*(\"username\")\\s*:\\s*(\"\\w+\"),\\s*(\"password\")\\s*:\\s*(\"\\w+\")\\s*}$");;
+    private static Pattern PATTERN = Pattern.compile("^\\{\\s*(\"username\")\\s*:\\s*(\"\\w+\"),\\s*(\"password\")\\s*:\\s*(\"\\w+\")\\s*}$");
 
     private DbConnectionHelper() {}
 
