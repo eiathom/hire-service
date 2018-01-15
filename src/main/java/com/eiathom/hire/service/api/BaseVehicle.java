@@ -15,22 +15,34 @@
  */
 package com.eiathom.hire.service.api;
 
+import java.util.Calendar;
+
 /**
- * class representing a hire record
+ * base class of Vehicle
  *
  * @author eiathom
  *
  */
-public interface Vehicle {
+public abstract class BaseVehicle implements Vehicle {
 
-    /**
-     * @return a String representing the make of this Vehicle
-     */
-    public String getMake();
+    protected final int yearManufactured;
 
-    /**
-     * @return the category of this Vehicle
-     */
-    public Category getCategory();
+    protected boolean hired;
+
+    public BaseVehicle(final int yearManufactured) {
+        this.yearManufactured = yearManufactured;
+    }
+
+    public boolean isHired() {
+        return hired;
+    }
+
+    public void setHired(final boolean hired) {
+        this.hired = hired;
+    }
+
+    public Integer getAge() {
+        return Calendar.getInstance().get(Calendar.YEAR) - this.yearManufactured;
+    }
 
 }

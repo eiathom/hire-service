@@ -22,5 +22,17 @@ package com.eiathom.hire.service.api;
  *
  */
 public enum Category {
-    
+
+    SALOON("Saloon"), ESTATE("Estate"), ROADSTER("Roadster"), MOUNTAIN("Mountain"), RACER("Racer");
+
+    private final String name;
+
+    private Category(final String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
 }

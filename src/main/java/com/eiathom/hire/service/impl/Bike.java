@@ -13,24 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.eiathom.hire.service.api;
+package com.eiathom.hire.service.impl;
+
+import com.eiathom.hire.service.api.BaseVehicle;
+import com.eiathom.hire.service.api.Category;
 
 /**
- * class representing a hire record
+ * base class of Vehicle
  *
  * @author eiathom
  *
  */
-public interface Vehicle {
+public class Bike extends BaseVehicle {
 
-    /**
-     * @return a String representing the make of this Vehicle
-     */
-    public String getMake();
+    private final String make;
+    private final Category category;
 
-    /**
-     * @return the category of this Vehicle
-     */
-    public Category getCategory();
+    public Bike(final String make, final Category category, final int yearManufactured) {
+        super(yearManufactured);
+        this.make = make;
+        this.category = category;
+    }
+
+    @Override
+    public String getMake() {
+        return make;
+    }
+
+    @Override
+    public Category getCategory() {
+        return category;
+    }
 
 }
